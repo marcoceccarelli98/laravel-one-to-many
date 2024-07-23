@@ -23,6 +23,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|string|unique:projects,title',
+            'type_id' => 'nullable|exists:types,id',
             'description' => 'required|string',
             'status' => 'required|string|max:20',
             'start_date' => 'nullable|date|after:1998-10-9',

@@ -24,6 +24,17 @@
                     <input type="text" name="title" id="title" class="form-control"
                         value="{{ old('title', $project->title) }}" required>
                 </div>
+
+                {{-- TYPE --}}
+                <div class="mt-5 text-white form-group">
+                    <label>Titolo</label>
+                    <select name="type_id" class="form-select" aria-label="Default select example">
+                        <option value="" selected>Seleziona il Tipo</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="text-white mt-3 form-group">
                     <label for="description">Descrizione</label>
                     <textarea name="description" id="description" class="form-control" required>{{ old('description', $project->description) }}</textarea>

@@ -18,14 +18,30 @@
             @endif
             <form class="mt-5" action="{{ route('projects.store') }}" method="POST">
                 @csrf
+                {{-- TITLE --}}
                 <div class="text-white form-group">
                     <label for="title">Titolo</label>
                     <input value="Boolflix" type="text" name="title" id="title" class="form-control" required>
                 </div>
+
+                {{-- TYPE --}}
+                <div class="mt-5 text-white form-group">
+                    <label>Titolo</label>
+                    <select name="type_id" class="form-select" aria-label="Default select example">
+                        <option value="" selected>Seleziona il Tipo</option>
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- DESCRIPTION --}}
                 <div class="text-white mt-3 form-group">
                     <label for="description">Descrizione</label>
                     <textarea name="description" id="description" class="form-control" required>Progetto simile a Netflix</textarea>
                 </div>
+
+                {{-- STATUS --}}
                 <div class="text-white mt-3 form-group">
                     <label for="status">Status</label>
                     <input value="WIP" type="text" name="status" id="status" class="form-control" required>
@@ -40,14 +56,19 @@
                     </select>
                 </div> --}}
 
+                {{-- START DATE --}}
                 <div class="text-white mt-3 form-group">
                     <label for="start_date">Data Inizio</label>
                     <input value="2020-05-07" type="date" name="start_date" id="start_date" class="form-control">
                 </div>
+
+                {{-- END DATE --}}
                 <div class="text-white mt-3 form-group">
                     <label for="end_date">Data Fine</label>
                     <input type="date" name="end_date" id="end_date" class="form-control">
                 </div>
+
+                {{-- IMAGES --}}
                 <div class="text-white mt-3 form-group">
                     <label for="images">Immagini (separate da virgola)</label>
                     <input

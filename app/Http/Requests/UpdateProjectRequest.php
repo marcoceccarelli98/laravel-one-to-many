@@ -22,7 +22,8 @@ class UpdateProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|unique:projects,title',
+            'title' => 'required|string|unique:projects,title,' . $this->project->id,
+            'type_id' => 'nullable|exists:types,id',
             'description' => 'required|string',
             'status' => 'required|string|max:20',
             'start_date' => 'nullable|date|after:1998-10-9',
