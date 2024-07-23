@@ -13,10 +13,17 @@ class TypesTableSeeder extends Seeder
      */
     public function run(): void
     {
+
+        Type::truncate();
+
         $types = ['Front-End', 'Back-End', 'Full-Stack', 'PLC', 'AI', 'Games'];
 
         foreach ($types as $type) {
-            Type::create(['name' => $type]);
+            $new_type = new Type();
+
+            $new_type->name = $type;
+
+            $new_type->save();
         }
     }
 }
