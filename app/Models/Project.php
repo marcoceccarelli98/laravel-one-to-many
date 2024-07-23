@@ -23,8 +23,8 @@ class Project extends Model
         'images' => 'array',
     ];
 
-    public function types()
+    public function type()
     {
-        return $this->hasMany(Project::class);
+        return $this->belongsTo(Type::class);
     }
 }

@@ -9,8 +9,8 @@ class Type extends Model
 {
     use HasFactory;
 
-    public function project()
+    public function projects()
     {
-        return $this->belongsTo(Type::class);
+        return $this->hasMany(Project::class);
     }
 }
