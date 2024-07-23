@@ -22,4 +22,9 @@ class Project extends Model
     protected $casts = [
         'images' => 'array',
     ];
+
+    public function types()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

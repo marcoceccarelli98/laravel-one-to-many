@@ -19,12 +19,14 @@ class ProjectTableSeeder extends Seeder
 
             $project = new Project();
 
+            $project->type_id = rand(1, 6);
             $project->title = $seed['title'];
             $project->description = $seed['description'];
             $project->status = $seed['status'];
             $project->images = $seed['images'];
             $project->start_date = $seed['start_date'];
             $project->end_date = $seed['end_date'];
+            $project->slug = $seed['slug'];
 
             $project->save();
         }
